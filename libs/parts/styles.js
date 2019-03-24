@@ -9,31 +9,31 @@ export default StyleSheet.create({
   passwordInputViewItem      : {
     alignItems     : 'center',
     justifyContent : 'center',
-    height         : 35,
+    height         : 25,
     margin         : 5,
-    width          : 35,
-    borderRadius   : 35 / 2,
+    width          : 25,
+    borderRadius   : 25 / 2,
   },
   passwordInputViewItemActive: {
     alignItems     : 'center',
     justifyContent : 'center',
-    height         : 35,
-    width          : 35,
+    height         : 25,
+    width          : 25,
     margin         : 5,
-    borderRadius   : 35 / 2,
+    borderRadius   : 25 / 2,
   },
   // KeyboardView
   keyboardView               : {
     alignItems: 'center',
-    marginTop : 35
+    // marginTop: 35
   },
   keyboardViewItem           : {
     alignItems      : 'center',
     justifyContent  : 'center',
     height          : 75,
     width           : 75,
-    marginHorizontal: 20,
-    marginVertical  : 5,
+    marginHorizontal: 10,
+    marginVertical  : 10,
     borderRadius    : 75 / 2,
   },
   keyboardViewItemText       : {

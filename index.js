@@ -98,7 +98,7 @@ class PinView extends React.Component {
       inputVisible
     } = this.props;
     return (
-        <View pointerEvents={disabled ? "none" : undefined}>
+      <View style={{flex: 1}} pointerEvents={disabled ? "none" : undefined}>
           <InputView
               userInput={this.userInput}
               inputVisible={inputVisible}

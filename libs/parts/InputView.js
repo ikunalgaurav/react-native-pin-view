@@ -33,11 +33,13 @@ const InputView = ({userInput, inputVisible, pinViewAnim, animatedInputIndex, pi
     return <Animated.View
       key={"passwordItem-" + index}
       style={[styles[2], {
-        borderColor: inputBorderColor,
-        borderWidth: inputBorderWidth,
+        borderBottomWidth: inputBorderWidth,
+        borderBottomColor: inputBorderColor,
+        borderWidth: 0,
+        borderRadius: 0,
         opacity: 1
       }]} >
-      <Text style={{color: activeBgColor, fontSize: 25}}>
+      <Text style={{color: activeBgColor, fontSize: 20}}>
         {input}
       </Text>
     </Animated.View>
