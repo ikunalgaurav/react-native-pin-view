@@ -1,7 +1,7 @@
 import React from 'react';
-import { Animated } from "react-native";
+import {Animated, Text} from "react-native";
 
-const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity }) => {
+const InputView = ({userInput, inputVisible, pinViewAnim, animatedInputIndex, pinLength, bgColor, activeBgColor, styles, bgOpacity, inputBorderColor, inputBorderWidth}) => {
   const tilt = pinViewAnim.interpolate({
     inputRange: [0, 0.3, 0.6, 0.9],
     outputRange: [0, -50, 50, 0]
@@ -12,6 +12,8 @@ const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, active
         key={"passwordItem-" + index}
         style={[styles[1], {
           backgroundColor: bgColor,
+        borderColor: inputBorderColor,
+        borderWidth: inputBorderWidth,
           opacity: bgOpacity
         }]}/>;
   };
@@ -21,14 +23,34 @@ const InputView = ({ pinViewAnim, animatedInputIndex, pinLength, bgColor, active
         key={"passwordItem-" + index}
         style={[styles[2], {
           backgroundColor: activeBgColor,
+        borderColor: inputBorderColor,
+        borderWidth: inputBorderWidth,
           opacity: 1
         }]}/>
   };
+
+  const visibleInput = (index, input) => {
+    return <Animated.View
+      key={"passwordItem-" + index}
+      style={[styles[2], {
+        borderColor: inputBorderColor,
+        borderWidth: inputBorderWidth,
+        opacity: 1
+      }]} >
+      <Text style={{color: activeBgColor, fontSize: 25}}>
+        {input}
+      </Text>
+    </Animated.View>
+  };
+
   const ShowInput = (pinLength) => {
     let table = [];
     {
       for (let i = 0; i < pinLength; i++) {
-        if (animatedInputIndex[i] === undefined) {
+        if (inputVisible) {
+          table.push(visibleInput(i, userInput[i]))
+        }
+        else if (animatedInputIndex[i] === undefined) {
           table.push(inactiveInput(i))
         } else {
           table.push(activeInput(i))
